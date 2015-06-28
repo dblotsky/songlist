@@ -1,0 +1,15 @@
+<header>
+    <nav class="navbar navbar-default">
+        <div class="container">
+            <div class="navbar-header">
+                <a class="navbar-brand">HEX Jam</a>
+            </div>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="{% url 'admin:login' %}?next=/">login</a></li>
+                {% if user.is_authenticated %}
+                <li><a href="{% url 'admin:logout' %}?next=/">logout</a></li>
+                {% endif %}
+            </ul>
+        </div>
+    </nav>
+</header>

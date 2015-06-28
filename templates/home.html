@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+
+{% block content %}
+
+    <div class="container">
+        {% include 'includes/song_list.html' with songs=played_songs title='Played Together at Least Once' %}
+        {% include 'includes/song_list.html' with songs=unplayed_songs title='Not Played Together Yet' %}
+        <p>
+            <a href="{% url 'admin:setlist_song_add' %}" target="_blank">Add a song</a>
+        </p>
+    </div>
+
+{% endblock content %}

@@ -18,6 +18,16 @@ class Artist(NamedSetlistObject):
     # data
     name = models.CharField(max_length=MAX_NAME_LENGTH, blank=False, null=False, unique=True)
 
+class FeatureRequest(models.Model):
+
+    # data
+    contact    = models.CharField(max_length=MAX_NAME_LENGTH, blank=False, null=False, help_text="Name, Email, or any other way I can know who you are.")
+    suggestion = models.TextField(blank=False, null=False)
+
+    def __unicode__(self):
+        words = self.suggestion.split(' ')
+        return "{someone!r} had {how_many} words to say.".format(someone=self.contact, how_many=len(words))
+
 class Song(NamedSetlistObject):
 
     class Meta:
@@ -31,20 +41,17 @@ class Song(NamedSetlistObject):
     # relationships
     artist = models.ForeignKey(Artist, related_name='songs', blank=False, null=True, unique=False)
 
-    def has_youtube(self):
-        return self.has_link('YouTube')
+    def youtube_link(self):
+        return self.links.filter(name='YouTube').first()
 
-    def has_lyrics(self):
-        return self.has_link('Lyrics')
+    def lyrics_link(self):
+        return self.links.filter(name='Lyrics').first()
 
-    def has_tab(self):
-        return self.has_link('Guitar Tab')
+    def tab_link(self):
+        return self.links.filter(name='Guitar Tab').first()
 
     def sheet_links(self):
         return self.links.exclude(name='Lyrics').exclude(name='YouTube')
-
-    def has_link(self, name):
-        return self.links.filter(name=name).exists()
 
 class Link(NamedSetlistObject):
 

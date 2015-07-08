@@ -13,6 +13,10 @@ class SongAdmin(admin.ModelAdmin):
 class LinkAdmin(admin.ModelAdmin):
     pass
 
-admin.site.register(Artist, ArtistAdmin)
-admin.site.register(Song,   SongAdmin)
-admin.site.register(Link,   LinkAdmin)
+class FeatureRequestAdmin(admin.ModelAdmin):
+    pass
+
+admin.site.register(Artist,         ArtistAdmin)
+admin.site.register(Song,           SongAdmin)
+admin.site.register(Link,           LinkAdmin)
+admin.site.register(FeatureRequest, FeatureRequestAdmin)

@@ -5,9 +5,9 @@
                 <a class="navbar-brand">HEX Jam</a>
             </div>
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="{% url 'admin:login' %}?next=/">login</a></li>
+                <li><a href="{% url 'admin:login' %}?next={% url 'home' %}">login</a></li>
                 {% if user.is_authenticated %}
-                <li><a href="{% url 'admin:logout' %}?next=/">logout</a></li>
+                <li><a href="{% url 'admin:logout' %}?next={% url 'home' %}">logout</a></li>
                 {% endif %}
             </ul>
         </div>

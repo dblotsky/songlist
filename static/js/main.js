@@ -7,6 +7,10 @@ $(document).ready(function () {
 });
 
 function toggleWatch (event) {
+
+    var uri = $(event.target).attr('data-src');
+    $(event.target).attr('src', uri);
+
     $(event.target)
         .prev('.btn-watch')
         .toggle();

@@ -40,7 +40,7 @@
                     <td class="col-sm-11">
                         {% if link.name == "YouTube" %}
                         <a class="btn btn-success btn-xs btn-watch" data-toggle="collapse" href="#collapse-yt-{{ song.id }}">Watch</a>
-                        <iframe id="collapse-yt-{{ song.id }}" class="collapse panel-collapse" src="https://www.youtube.com/embed/{{ link.youtube_id }}?enablejsapi=1" frameborder="0" allowfullscreen></iframe>
+                        <iframe id="collapse-yt-{{ song.id }}" class="collapse panel-collapse" data-src="https://www.youtube.com/embed/{{ link.youtube_id }}?enablejsapi=1" frameborder="0" allowfullscreen></iframe>
                         {% else %}
                         <a href="{{ link.url }}" target="_blank">{{ link.url }}</a>
                         {% endif %}

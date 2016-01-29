@@ -4,8 +4,8 @@
 {% block content %}
 
     <div class="container">
-        {% include 'includes/song_list.html' with songs=played_songs title='Played Together at Least Once' %}
-        {% include 'includes/song_list.html' with songs=unplayed_songs title='Not Played Together Yet' %}
+        {% include 'includes/song_list.html' with songs=list_songs title='Song List' %}
+        {% include 'includes/song_list.html' with songs=other_songs title='Songs others might know' %}
         <p>
             <a href="{% url 'admin:setlist_song_add' %}" target="_blank">Add a song</a>
         </p>

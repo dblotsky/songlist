@@ -35,8 +35,8 @@ class Song(NamedSetlistObject):
         unique_together = ('name', 'artist')
 
     # data
-    name   = models.CharField(max_length=MAX_NAME_LENGTH, blank=False, null=False, unique=False)
-    played = models.BooleanField(default=False, unique=False)
+    name    = models.CharField(max_length=MAX_NAME_LENGTH, blank=False, null=False, unique=False)
+    on_list = models.BooleanField(default=False, unique=False)
 
     # relationships
     artist = models.ForeignKey(Artist, related_name='songs', blank=False, null=True, unique=False)

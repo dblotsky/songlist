@@ -3,7 +3,7 @@ from setlist.models import *
 
 def home(request):
     context = {
-        'played_songs':   Song.objects.filter(played=True),
-        'unplayed_songs': Song.objects.filter(played=False),
+        'list_songs': Song.objects.filter(on_list=True),
+        'other_songs': Song.objects.filter(on_list=False),
     }
     return render(request, 'home.html', context)
